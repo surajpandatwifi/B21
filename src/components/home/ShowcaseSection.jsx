@@ -174,7 +174,7 @@ const ShowcaseSection = () => {
       <div className="container mx-auto section-padding">
         <div className="text-center component-margin space-y-4 sm:space-y-6 lg:space-y-8">
           <h2 className="showcase-title font-[font2] heading-responsive-xl uppercase mb-4 sm:mb-6 lg:mb-8 leading-tight text-layer-3 text-glow">
-            Our Cinematic Works
+            suraj gujjar
           </h2>
           <div className="floating-panel-dark max-width-content">
             <p className="font-[font1] text-responsive leading-relaxed text-layer-2">
