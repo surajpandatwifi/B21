@@ -13,6 +13,7 @@ import CTASection from '../components/home/CTASection'
 import AboutSection from '../components/home/AboutSection'
 import ContactSection from '../components/home/ContactSection'
 import Footer from '../components/home/Footer'
+import ShowcaseSection from '../components/home/ShowcaseSection'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 
@@ -91,6 +92,9 @@ const Home = () => {
         
         {/* Portfolio Section */}
         <PortfolioSection />
+        
+        {/* Showcase Section */}
+        <ShowcaseSection />
         
         {/* Stats Section */}
         <StatsSection />

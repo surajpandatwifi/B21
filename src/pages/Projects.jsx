@@ -58,32 +58,42 @@ const Projects = () => {
   gsap.registerPlugin(ScrollTrigger)
 
   useGSAP(function () {
+    // Ensure content is visible by default
+    gsap.set('.video-container, .section-title, .projects-content', { 
+      opacity: 1, 
+      visibility: 'visible' 
+    })
+    
+    // Animate video containers
     gsap.fromTo('.video-container', 
       {
-        opacity: 0,
+        opacity: 0.7,
         scale: 0.95,
-        y: 30
+        y: 20
       },
       {
         opacity: 1,
         scale: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.8,
         ease: "power2.out",
         stagger: {
-          amount: 0.4
+          amount: 0.3
         },
         scrollTrigger: {
-          trigger: '.video-container',
-          start: 'top 85%',
-          toggleActions: 'play none none none'
+          trigger: '.projects-content',
+          start: 'top 90%',
+          end: 'top 60%',
+          toggleActions: 'play none none none',
+          once: true
         }
       }
     )
 
+    // Animate section titles
     gsap.fromTo('.section-title',
       {
-        opacity: 0,
+        opacity: 0.8,
         y: 20
       },
       {
@@ -91,28 +101,42 @@ const Projects = () => {
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-        stagger: 0.15,
+        stagger: 0.1,
         scrollTrigger: {
-          trigger: '.section-title',
+          trigger: '.projects-content',
           start: 'top 90%',
-          toggleActions: 'play none none none'
+          end: 'top 70%',
+          toggleActions: 'play none none none',
+          once: true
         }
       }
     )
+    
+    // Fallback to ensure visibility
+    const fallbackTimer = setTimeout(() => {
+      gsap.set('.video-container, .section-title, .projects-content', { 
+        opacity: 1, 
+        visibility: 'visible',
+        y: 0,
+        scale: 1
+      })
+    }, 100)
+    
+    return () => clearTimeout(fallbackTimer)
   })
 
   return (
     <PageWrapper className='section-dark'>
       <div className="cinematic-overlay"></div>
-      <div className='container mx-auto section-padding mb-[30vh] sm:mb-[40vh] lg:mb-[50vh]'>
+      <div className='container mx-auto section-padding mb-[30vh] sm:mb-[40vh] lg:mb-[50vh]' style={{ opacity: 1, visibility: 'visible' }}>
       {/* Page Header */}
-      <div className='pt-[25vh] sm:pt-[30vh] lg:pt-[35vh] component-margin text-center'>
+      <div className='pt-[25vh] sm:pt-[30vh] lg:pt-[35vh] component-margin text-center' style={{ opacity: 1, visibility: 'visible' }}>
         <h1 className='font-[font2] heading-responsive-xl uppercase text-white text-layer-3 text-glow'>
           Projects
         </h1>
       </div>
 
-      <div className='projects-content space-y-16 sm:space-y-24 lg:space-y-32'>
+      <div className='projects-content space-y-16 sm:space-y-24 lg:space-y-32' style={{ opacity: 1, visibility: 'visible' }}>
         {/* Teasers Section */}
         <section className='floating-panel-dark space-y-8 sm:space-y-10 lg:space-y-12'>
           <h2 className='section-title font-[font2] text-3xl sm:text-4xl lg:text-5xl xl:text-6xl uppercase text-center text-layer-2 text-glow'>
