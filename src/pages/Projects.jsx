@@ -108,7 +108,7 @@ const Projects = () => {
       {/* Page Header */}
       <div className='pt-[25vh] sm:pt-[30vh] lg:pt-[35vh] component-margin text-center'>
         <h1 className='font-[font2] heading-responsive-xl uppercase text-white text-layer-3 text-glow'>
-          Projets
+          Projects
         </h1>
       </div>
 
